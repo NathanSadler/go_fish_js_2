@@ -157,3 +157,5 @@ class Game {
     return this._turnResults
   }
 }
+
+export default Game
