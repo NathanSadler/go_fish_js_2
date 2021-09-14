@@ -41,6 +41,6 @@ function Hello(name) {
   ReactDOM.render(<p>Hello, {name}!</p>, document.getElementById('root'))
 }
 
-export default LoginView
 
-// ReactDOM.render(<LoginView onLogin={(e) => Hello(e)}/>, document.getElementById('root'))
+
+export default LoginView
