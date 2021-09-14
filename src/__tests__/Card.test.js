@@ -1,9 +1,4 @@
 import Card from '../Card.js'
-import Game from './../Game.js'
-import Player from './../Player.js'
-import Deck from './../Deck.js'
-import TurnResult from './../TurnResult.js'
-import BotPlayer from './../BotPlayer.js'
 
 describe('Card', () => {
   let testCard

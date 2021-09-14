@@ -1,11 +1,12 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { render, fireEvent } from '@testing-library/react'
-import LoginView from './../LoginView'
+  import React from 'react';
+  import ReactDOM from 'react-dom';
+  import { render, fireEvent } from '@testing-library/react'
+  import LoginView from './../LoginView'
 
 it('calls onLogin prop on form submission with a given value', () => {
   const onLogin = jest.fn()
   const wrapper = render(<LoginView onLogin={onLogin}/>)
+  debugger
 
   const call_with = 'Nathan'
 

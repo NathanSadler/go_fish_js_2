@@ -1,8 +1,5 @@
-import BotPlayer from './BotPlayer.js'
+
 import Card from './Card.js'
-import Game from './Game.js'
-import Player from './Player.js'
-import TurnResult from './TurnResult.js'
 
 class Deck {
   static default_deck_size = 52

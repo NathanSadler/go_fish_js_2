@@ -5,7 +5,7 @@ import Deck from './../Deck.js'
 import TurnResult from './../TurnResult.js'
 import BotPlayer from './../BotPlayer.js'
 
-describe('Game', () => {
+xdescribe('Game', () => {
   let player1, player2, player_list, game
 
   beforeEach(() => {

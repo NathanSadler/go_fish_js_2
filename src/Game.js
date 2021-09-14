@@ -1,7 +1,5 @@
 import BotPlayer from './BotPlayer.js'
-import Card from './Card.js'
 import Deck from './Deck.js'
-import Player from './Player.js'
 import TurnResult from './TurnResult.js'
 
 class Game {

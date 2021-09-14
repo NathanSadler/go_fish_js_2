@@ -1,9 +1,3 @@
-import BotPlayer from './BotPlayer.js'
-import Deck from './Deck.js'
-import Game from './Game.js'
-import Player from './Player.js'
-import TurnResult from './TurnResult.js'
-
 class Card {
   constructor(rank, suit) {
     this._rank = rank;
