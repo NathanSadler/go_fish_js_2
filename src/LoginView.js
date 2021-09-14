@@ -1,20 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import PropTypes from 'prop-types';
 import './index.css';
 
 class LoginView extends React.Component {
-  constructor() {
-    super();
+  static propTypes = {
+    onLogin: PropTypes.func.isRequired
+  }
+
+  constructor(props) {
+    super(props);
 
     this.state = {value: ''}
 
     this.handleChange = this.handleChange.bind(this)
-    this.handleSubmit = this.handleSubmit.bind(this)
   }
 
   handleSubmit(event) {
     event.preventDefault();
     console.log(this.state.value)
+    this.props.onLogin(this.state.value)
+    // ReactDOM.render(<p>{this.state.value}</p>, document.getElementById('root'))
   }
 
   handleChange(event) {
@@ -23,12 +29,18 @@ class LoginView extends React.Component {
 
   render() {
     return (
-      <form class="user-form" onSubmit={this.handleSubmit}>
-        <label for="name">Your Name</label>
+      <form className="user-form" onSubmit={(e) => this.handleSubmit(e)}>
+        <label htmlFor="name">Your Name</label>
         <input type="text" id="name" value={this.state.value} onChange={this.handleChange} required></input>
-        <input type="submit" id="submit" value="login"></input>  
+        <input type="submit" id="submit" value="Login"></input>  
       </form>)
   }
 }
 
-ReactDOM.render(<LoginView/>, document.getElementById('root'))
+function Hello(name) {
+  ReactDOM.render(<p>Hello, {name}!</p>, document.getElementById('root'))
+}
+
+export default LoginView
+
+// ReactDOM.render(<LoginView onLogin={(e) => Hello(e)}/>, document.getElementById('root'))
