@@ -1,7 +1,9 @@
+import Card from './../Card.js'
 import Game from './../Game.js'
 import Player from './../Player.js'
 import Deck from './../Deck.js'
-import Card from './../Card.js'
+import TurnResult from './../TurnResult.js'
+import BotPlayer from './../BotPlayer.js'
 
 describe('Game', () => {
   let player1, player2, player_list, game
@@ -150,8 +152,9 @@ describe('Game', () => {
     })
 
     describe('the upcoming turn player not having any cards while there are still cards in the deck', () => {
-      let player3
 
+      let player3
+      
       beforeEach(() => {
         player3 = new BotPlayer('Player 3')
         player3.setHand([])
@@ -261,7 +264,7 @@ describe('Game', () => {
       game.players()[0]._cards.push(new Card('6', 'H'))
       game.playTurn(0, 1, '6')
       const result = new TurnResult(game, 0, 1, '6', [new Card('6', 'D')], player2)
-      expect(game.turnResults()).toContain(result)
+      expect(game.turnResults()).toContainEqual(result)
     })
 
     describe('a user correctly asking someone for a card of a specific rank', () => {
@@ -271,12 +274,12 @@ describe('Game', () => {
       })
 
       it('takes the cards of the requested rank from whoever got asked', () => {
-        expect(game.players()[1].cards()).not.toContain(new Card('6', 'D'))
+        expect(game.players()[1].cards()).not.toContainEqual(new Card('6', 'D'))
       })
 
       it('gives the cards that were taken from the requested player to the requesting player', () => {
         [new Card("6", "H"), new Card("6", "D")].forEach(card => 
-          expect(player1.cards()).toContain(card))
+          expect(player1.cards()).toContainEqual(card))
       })
 
       it("doesn't increment the turn player index", () => {
@@ -284,14 +287,14 @@ describe('Game', () => {
       })
 
       it("doesn't make the player draw a card", () => {
-        expect(player1.cards()).not.toContain(new Card('8', 'S'))
+        expect(player1.cards()).not.toContainEqual(new Card('8', 'S'))
       })
     })
 
     describe('a user incorrectly asking someone for a card of a specific rank', () => {
       it('makes the asking player draw a card from the deck', () => {
         game.playTurn(0, 1, '7')
-        expect(player1.cards()).toContain(new Card("8", "S"))
+        expect(player1.cards()).toContainEqual(new Card("8", "S"))
       })
 
       it("doesn't increment the turn player index if the asking player gets a card of the rank they asked for from the deck", () => {
@@ -325,7 +328,7 @@ describe('Game', () => {
     it('shuffles the deck', () => {
       const game = new Game([new Player('Hello World')], 5)
       game.start()
-      expected_cards_in_deck = Deck.default_deck_size - (game.playerCount() * Game.starting_card_count_for_many_players)
+      const expected_cards_in_deck = Deck.default_deck_size - (game.playerCount() * Game.starting_card_count_for_many_players)
       expect(game.deck().cardsLeft()).toEqual(expected_cards_in_deck)
     })
 
@@ -363,7 +366,7 @@ describe('Game', () => {
 
   describe('#turnResults', () => {
     it("returns this game's turn results", () => {
-      result = new TurnResult(game, 0, 1, '4', [new Card("4", "S"), new Card("4", "C"), new Card("4", "H")], player2)
+      const result = new TurnResult(game, 0, 1, '4', [new Card("4", "S"), new Card("4", "C"), new Card("4", "H")], player2)
       game._turnResults = [result]
       expect(game.turnResults()).toEqual([result])
     })
