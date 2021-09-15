@@ -2,6 +2,9 @@ import logo from './logo.svg';
 import './App.css';
 import React from 'react';
 import LoginView from './LoginView';
+import GameView from './GameView';
+import Game from './Game';
+import Player from './Player';
 
 class App extends React.Component {
   constructor(props) {
@@ -12,14 +15,15 @@ class App extends React.Component {
   }
 
   startGame(name) {
-    
+    const game = new Game([new Player(name)], 4)
+    this.setState({game})
   }
 
   render() {
     if(this.state.game) {
-      console.log("AAAAAA")
+      return <GameView game={this.state.game} />
     } else {
-      return <LoginView />
+      return <LoginView onLogin={this.startGame.bind(this)}/>
     }
   }
 }

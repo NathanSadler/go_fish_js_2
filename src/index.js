@@ -9,6 +9,5 @@ import LoginView from './LoginView';
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 
-ReactDOM.render(<LoginView onLogin={(e) => {ReactDOM.render(<p>Hello, {e}!</p>, 
-  document.getElementById('root'))}}/>, document.getElementById('root'))
+ReactDOM.render(<App />, document.getElementById('root'))
 reportWebVitals();
