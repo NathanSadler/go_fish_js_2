@@ -13,7 +13,8 @@ class GameView extends React.Component {
   }
 
   render() {
-    return(<p>AAAAAA</p>)
+    const listItems = this.props.game.players().map(player => <li key={player.name()}>{player.name()}</li>)
+    return(<ul>{listItems}</ul>)
   }
 }
 

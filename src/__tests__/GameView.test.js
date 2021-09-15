@@ -14,14 +14,14 @@ describe('GameView', () => {
     game = new Game(player_list)
 
     wrapper = render(<GameView game={game}/>)
-    debugger
 
   })
 
   describe('displaying the players in a game', () => {
     it('lists the name of each player', () => {
-      debugger
-      expect(document.innerHTML).toContain('John')
+      // debugger
+      expect(wrapper.container.innerHTML).toContain('John')
+      expect(wrapper.container.innerHTML).toContain('Bob')
     })
   })
 })
