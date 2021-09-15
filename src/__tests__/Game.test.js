@@ -1,9 +1,9 @@
-import Card from './../Card.js'
+// import Card from './../Card.js'
 import Game from './../Game.js'
 import Player from './../Player.js'
-import Deck from './../Deck.js'
-import TurnResult from './../TurnResult.js'
-import BotPlayer from './../BotPlayer.js'
+// import Deck from './../Deck.js'
+// import TurnResult from './../TurnResult.js'
+// import BotPlayer from './../BotPlayer.js'
 
 xdescribe('Game', () => {
   let player1, player2, player_list, game
@@ -267,7 +267,7 @@ xdescribe('Game', () => {
       expect(game.turnResults()).toContainEqual(result)
     })
 
-    describe('a user correctly asking someone for a card of a specific rank', () => {
+    xdescribe('a user correctly asking someone for a card of a specific rank', () => {
       beforeEach(() => {
         game.players()[0]._cards.push(new Card('6', 'H'))
         game.playTurn(0, 1, '6')
@@ -291,7 +291,7 @@ xdescribe('Game', () => {
       })
     })
 
-    describe('a user incorrectly asking someone for a card of a specific rank', () => {
+    xdescribe('a user incorrectly asking someone for a card of a specific rank', () => {
       it('makes the asking player draw a card from the deck', () => {
         game.playTurn(0, 1, '7')
         expect(player1.cards()).toContainEqual(new Card("8", "S"))
@@ -308,7 +308,7 @@ xdescribe('Game', () => {
       })
     })
 
-    describe('what happens when a player loses all of their cards because they won a book', () => {
+    xdescribe('what happens when a player loses all of their cards because they won a book', () => {
       beforeEach(() => {
         player1.setHand([new Card('4', 'D')])
         game.playTurn(0, 1, '4')
@@ -324,7 +324,7 @@ xdescribe('Game', () => {
     })
   })
 
-  describe('#start', () => {
+  xdescribe('#start', () => {
     it('shuffles the deck', () => {
       const game = new Game([new Player('Hello World')], 5)
       game.start()
@@ -351,20 +351,20 @@ xdescribe('Game', () => {
     })
   })
 
-  describe('#turnPlayer', () => {
+  xdescribe('#turnPlayer', () => {
     it('returns the player whose turn it is', () => {
       game.incrementTurnPlayerIndex()
       expect(game.turnPlayer()).toEqual(player2)
     })
   })
 
-  describe('#turnPlayerIndex', () => {
+  xdescribe('#turnPlayerIndex', () => {
     it('returns the turn player index of the game', () => {
       expect(game.turnPlayerIndex()).toEqual(0)
     })
   })
 
-  describe('#turnResults', () => {
+  xdescribe('#turnResults', () => {
     it("returns this game's turn results", () => {
       const result = new TurnResult(game, 0, 1, '4', [new Card("4", "S"), new Card("4", "C"), new Card("4", "H")], player2)
       game._turnResults = [result]
@@ -372,7 +372,7 @@ xdescribe('Game', () => {
     })
   })
 
-  describe('#incrementTurnPlayerIndex', () => {
+  xdescribe('#incrementTurnPlayerIndex', () => {
     it('increments the turn player index', () => {
       game.incrementTurnPlayerIndex()
       expect(game.turnPlayerIndex()).toEqual(1)

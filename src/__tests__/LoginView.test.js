@@ -6,7 +6,6 @@
 it('calls onLogin prop on form submission with a given value', () => {
   const onLogin = jest.fn()
   const wrapper = render(<LoginView onLogin={onLogin}/>)
-  debugger
 
   const call_with = 'Nathan'
 

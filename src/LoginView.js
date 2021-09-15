@@ -37,9 +37,6 @@ class LoginView extends React.Component {
   }
 }
 
-function Hello(name) {
-  ReactDOM.render(<p>Hello, {name}!</p>, document.getElementById('root'))
-}
 
 
 

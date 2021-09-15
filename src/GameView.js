@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import './index.css';
 
 class GameView extends React.Component {
-  static PropTypes = {
+  static propTypes = {
     game: PropTypes.object.isRequired
   }
   
