@@ -3,13 +3,13 @@ import Card from './Card.js'
 class Player {
   constructor(name) {
     this._name = name;
-    // this._cards = [];
+    this._cards = [];
     // this._score = 0
   }
 
-  // cards() {
-  //   return this._cards
-  // }
+  cards() {
+    return this._cards
+  }
 
   // cardCount() {
   //   return this.cards().length
@@ -51,9 +51,9 @@ class Player {
   //   return this._score
   // }
 
-  // setHand(new_hand) {
-  //   this._cards = new_hand
-  // }
+  setHand(new_hand) {
+    this._cards = new_hand
+  }
 
   // takeCard(taken_card) {
   //   if(taken_card !== null) {
