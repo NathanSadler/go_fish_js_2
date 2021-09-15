@@ -1,3 +1,5 @@
+import Card from './Card.js'
+
 class Player {
   constructor(name) {
     this._name = name;
